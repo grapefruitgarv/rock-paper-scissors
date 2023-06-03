@@ -1,2 +1,6 @@
 .vscode
 second.js
+test.js
+.DS_Store
+node_modules/
+*.log
