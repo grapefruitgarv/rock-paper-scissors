@@ -1,4 +1,5 @@
 # rock-paper-scissors
 Create a rock, paper, scissors program.
 
-This is an assignment from The Odin Project. https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
+This is an assignment from The Odin Project. https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors
+Adding a UI for Rock, Paper, Scissors
