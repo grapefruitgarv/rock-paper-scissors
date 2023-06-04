@@ -48,25 +48,28 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
 function makeSelection() {
     let playerSelection;
     const buttons = document.querySelectorAll('button');
+    const buttonPressed = e => {
+        const isButton = e.target.nodeName === 'BUTTON';
+        if (!isButton) {
+            return
+        };
+        console.log(e.target.id);
+        playerSelection = e.target.id;
+        return playerSelection;
+    }
+    // playerSelection = buttons.addEventListener('click', buttonPressed);
     buttons.forEach(button => {
-        button.addEventListener('click', {
-            if(button.id == 'rock')
-        playerSelection = 'rock';
-            else if (button.id == 'paper')
-            playerSelection = 'paper';
-        else if (button.id == 'scissors')
-            playerSelection = 'scissors';
-    }, {
-        once: true
-    })
-});
-return playerSelection;
+        button.addEventListener('click', buttonPressed, {
+            once: true
+        })
+    });
+    //console.log(playerSelection);
+    return playerSelection;
 }
-
-
 
 function game() {
     // const playerSelection = prompt("Rock, paper, or scissors?");
@@ -83,6 +86,7 @@ function game() {
         return "It's a tie."
     }
 }
+
 console.log(game());
-console.log("Player's wins: " + playerCount);
-console.log("Computer's wins: " + cpuCount);
+// console.log("Player's wins: " + playerCount);
+// console.log("Computer's wins: " + cpuCount);
