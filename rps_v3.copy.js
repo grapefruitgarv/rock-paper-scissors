@@ -53,7 +53,7 @@ function makeSelection() {
     let playerSelection;
     const buttons = document.querySelectorAll('button');
     const buttonPressed = e => {
-        const isButton = e.target.nodeName === 'BUTTON';
+        const isButton = (e.target.nodeName === 'BUTTON');
         if (!isButton) {
             return
         };
@@ -67,7 +67,7 @@ function makeSelection() {
             once: true
         })
     });
-    console.log(playerSelection);
+    // console.log(playerSelection);
     return playerSelection;
 }
 
@@ -86,7 +86,7 @@ function game() {
         return "It's a tie."
     }
 }
-// console.log(makeSelection());
+console.log(makeSelection());
 // console.log(game());
 // console.log("Player's wins: " + playerCount);
 // console.log("Computer's wins: " + cpuCount);
