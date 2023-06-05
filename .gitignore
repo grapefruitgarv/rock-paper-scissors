@@ -5,3 +5,4 @@ test.js
 node_modules/
 *.log
 clicktest.js
+rps_v3.copy.js
