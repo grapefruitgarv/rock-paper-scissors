@@ -51,24 +51,28 @@ function playRound(playerSelection, computerSelection) {
 
 function makeSelection() {
     let playerSelection;
+    let clicked = false;
     const buttons = document.querySelectorAll('button');
     const buttonPressed = e => {
-        const isButton = e.target.nodeName === 'BUTTON';
-        if (!isButton) {
-            return
-        };
-        console.log(e.target.id);
-        playerSelection = e.target.id;
-        return playerSelection;
+        const isButton = e.target.nodeName === 'BUTTON' && (e.target.className !== 'btn');
+        if (!clicked && isButton) {
+            clicked = true;
+            if (!isButton) {
+                return
+            };
+            playerSelection = e.target.id;
+            console.log('e.target.id' + ' ' + e.target.id);
+            console.log('e.target.parentElement.id' + ' ' + e.target.parentElement.id);
+            console.log('Player selection: ' + playerSelection);
+            return playerSelection;
+        }
     }
-    // playerSelection = buttons.addEventListener('click', buttonPressed);
+
     buttons.forEach(button => {
         button.addEventListener('click', buttonPressed, {
-            once: true
+
         })
     });
-    console.log(playerSelection);
-    return playerSelection;
 }
 
 function game() {
@@ -86,7 +90,7 @@ function game() {
         return "It's a tie."
     }
 }
-// console.log(makeSelection());
+console.log(makeSelection());
 // console.log(game());
 // console.log("Player's wins: " + playerCount);
 // console.log("Computer's wins: " + cpuCount);

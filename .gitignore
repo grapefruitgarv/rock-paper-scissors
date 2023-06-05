@@ -4,3 +4,4 @@ test.js
 .DS_Store
 node_modules/
 *.log
+clicktest.js

@@ -36,6 +36,7 @@ body {
 }
 
 button {
+    width: 110px;
     border-radius: 5px;
     font-size: 24px;
     padding-top: 15px;
