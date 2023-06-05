@@ -1,6 +1,14 @@
 // variables to store wins
 let playerCount = 0;
 let cpuCount = 0;
+let addPlayerScore = 0;
+let addCpuScore = 0;
+const playerScore = document.querySelector('#playerScore');
+const cpuScore = document.querySelector('#cpuScore');
+addPlayerScore = document.createTextNode('0');
+playerScore.appendChild(addPlayerScore);
+addCpuScore = document.createTextNode('0');
+cpuScore.appendChild(addCpuScore);
 
 // function to get computer choice
 function getComputerChoice() {
@@ -17,31 +25,43 @@ function getComputerChoice() {
 
 // function to play a round
 function playRound(playerSelection, computerSelection) {
-    // make sure it's one of the options
-    // validateEntry(playerSelection);
     // if...if else statements to test variables against one another
     if (playerSelection == 'rock' && computerSelection == 'paper') {
         cpuCount++; // Add 1 to computer's win count
+        addCpuScore = document.createTextNode(cpuCount);
+        cpuScore.appendChild(addCpuScore);
+
         return "You lose Paper beats Rock";
     }
     else if (playerSelection == 'rock' && computerSelection == 'scissors') {
         playerCount++; // Add 1 to player's win count
+        addPlayerScore = document.createTextNode(playerCount);
+        playerScore.appendChild(addPlayerScore);
+
         return "You win Rock beats Scissors";
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock') {
         playerCount++; // Add 1 to player's win count
+        addPlayerScore = document.createTextNode(playerCount);
+        playerScore.appendChild(addPlayerScore);
         return "You win Paper beats Rock";
     }
     else if (playerSelection == 'paper' && computerSelection == 'scissors') {
         cpuCount++; // Add 1 to computer's win count
+        addCpuScore = document.createTextNode(cpuCount);
+        cpuScore.appendChild(addCpuScore);
         return "You lose Scissors beats Paper";
     }
     else if (playerSelection == 'scissors' && computerSelection == 'paper') {
         playerCount++; // Add 1 to player's win count
+        addPlayerScore = document.createTextNode(playerCount);
+        playerScore.appendChild(addPlayerScore);
         return "You win Scissors beats Paper";
     }
     else if (playerSelection == 'scissors' && computerSelection == 'rock') {
         cpuCount++; // Add 1 to computer's win count
+        addCpuScore = document.createTextNode(cpuCount);
+        cpuScore.appendChild(addCpuScore);
         return "You lose Rock beats Scissors";
     } else {
         return "It's a tie"
