@@ -30,14 +30,12 @@ function playRound(playerSelection, computerSelection) {
         cpuCount++; // Add 1 to computer's win count
         addCpuScore = document.createTextNode(cpuCount);
         cpuScore.appendChild(addCpuScore);
-
         return "You lose Paper beats Rock";
     }
     else if (playerSelection == 'rock' && computerSelection == 'scissors') {
         playerCount++; // Add 1 to player's win count
         addPlayerScore = document.createTextNode(playerCount);
         playerScore.appendChild(addPlayerScore);
-
         return "You win Rock beats Scissors";
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock') {
@@ -74,15 +72,13 @@ function makeSelection() {
     let clicked = false;
     const buttons = document.querySelectorAll('button');
     const buttonPressed = e => {
-        const isButton = e.target.nodeName === 'BUTTON' && (e.target.className !== 'btn');
+        const isButton = e.target.nodeName === 'BUTTON' && (e.target.className !== 'btn') && (e.target.id !== 'start');
         if (!clicked && isButton) {
             clicked = true;
             if (!isButton) {
                 return
             };
             playerSelection = e.target.id;
-            console.log('e.target.id' + ' ' + e.target.id);
-            console.log('e.target.parentElement.id' + ' ' + e.target.parentElement.id);
             console.log('Player selection: ' + playerSelection);
             return playerSelection;
         }
@@ -110,6 +106,26 @@ function game() {
         return "It's a tie."
     }
 }
+
+function playGame() {
+    const button = document.getElementById('start');
+    let click = false;
+    const buttonPressed = e => {
+        const isButton = e.target.nodeName === 'BUTTON' && (e.target.id == 'start');
+        if (!clicked && isButton) {
+            clicked = true;
+            if (!isButton) {
+                return
+            };
+        }
+        console.log('Clicked start!');
+    }
+    button.addEventListener('click', buttonPressed, {
+        once: true;
+    })
+    game();
+}
+
 console.log(makeSelection());
 // console.log(game());
 // console.log("Player's wins: " + playerCount);
