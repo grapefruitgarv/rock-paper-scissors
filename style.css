@@ -1,10 +1,12 @@
 body {
     background-image: url("https://images.unsplash.com/photo-1548437983-5d3c209764a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2992&q=80");
-    display: block;
+    display: flex;
+    flex-direction: column;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     margin: 0;
     padding: 0;
     height: 100vh;
+    box-sizing: border-box;
 }
 
 h1{
@@ -12,8 +14,14 @@ h1{
     font-size: 90px;
 }
 
+#title {
+    display: flex;
+    justify-content: center;
+}
+
 .container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 100px;
     align-items: center;
