@@ -72,7 +72,7 @@ function makeSelection() {
     let clicked = false;
     const buttons = document.querySelectorAll('button');
     const buttonPressed = e => {
-        const isButton = e.target.nodeName === 'BUTTON' && (e.target.className !== 'btn') && (e.target.id !== 'start');
+        const isButton = e.target.nodeName === 'BUTTON' && (e.target.className !== 'btn');
         if (!clicked && isButton) {
             clicked = true;
             if (!isButton) {
@@ -89,6 +89,7 @@ function makeSelection() {
 
         })
     });
+    clicked = false;
 }
 
 function game() {
@@ -108,22 +109,25 @@ function game() {
 }
 
 function playGame() {
-    const button = document.getElementById('start');
-    let click = false;
+    let clicked = false;
+    const buttons = document.querySelectorAll('button');
     const buttonPressed = e => {
-        const isButton = e.target.nodeName === 'BUTTON' && (e.target.id == 'start');
+        const isButton = e.target.nodeName === 'BUTTON' && (e.target.className === 'option');
         if (!clicked && isButton) {
             clicked = true;
+            const game = game();
+            console.log('game ' + game);
             if (!isButton) {
                 return
             };
         }
-        console.log('Clicked start!');
+        clicked = true;
     }
-    button.addEventListener('click', buttonPressed, {
-        once: true;
-    })
-    game();
+
+    buttons.forEach(button => {
+        button.addEventListener('click', buttonPressed, {
+        })
+    });
 }
 
 console.log(makeSelection());

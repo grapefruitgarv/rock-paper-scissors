@@ -20,17 +20,6 @@ h1{
     height: 60%;
 }
 
-.start {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-#start {
-    width: auto;
-    padding: 5px 15px;
-}
-
 .left {
     display: flex;
     flex-direction: column;
