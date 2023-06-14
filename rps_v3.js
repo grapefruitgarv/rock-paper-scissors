@@ -89,6 +89,7 @@ function makeSelection() {
 
         })
     });
+
     clicked = false;
 }
 
@@ -96,7 +97,19 @@ function game() {
     // const playerSelection = prompt("Rock, paper, or scissors?");
     const playerSelection = makeSelection();
     const computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
+    const buttons = document.querySelectorAll('button');
+    const buttonPressed = e => {
+        const isButton = e.target.nodeName === 'BUTTON' && e.target.className !== 'btn';
+        if (!isButton) {
+            return
+        };
+
+        playRound(playerSelection, computerSelection);
+    }
+
+    buttons.forEach(button => {
+        button.addEventListener('click', buttonPressed)
+    });
     // console.log("P: " + playerCount + ", " + playerSelection + ", C: " + cpuCount + ", " + computerSelection);
 
     if (playerCount > cpuCount) {
@@ -115,11 +128,13 @@ function playGame() {
         const isButton = e.target.nodeName === 'BUTTON' && (e.target.className === 'option');
         if (!clicked && isButton) {
             clicked = true;
-            const game = game();
-            console.log('game ' + game);
+
             if (!isButton) {
                 return
             };
+            const game = game();
+            console.log('game ' + game);
+            console.log('now playing');
         }
         clicked = true;
     }
@@ -128,9 +143,12 @@ function playGame() {
         button.addEventListener('click', buttonPressed, {
         })
     });
+    buttons.forEach(button => {
+        button.addEventListener('click', playGame)
+    });
 }
 
-console.log(makeSelection());
-// console.log(game());
+// console.log(makeSelection());
+console.log(game());
 // console.log("Player's wins: " + playerCount);
 // console.log("Computer's wins: " + cpuCount);
