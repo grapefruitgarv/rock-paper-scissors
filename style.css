@@ -99,3 +99,6 @@ button {
     cursor: not-allowed;
 }
 
+#active {
+    background-color: rgba(50, 204, 204, .5);
+}
